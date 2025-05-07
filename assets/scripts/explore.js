@@ -14,6 +14,7 @@ function init() {
 
   function populateVoices() {
     voices = synth.getVoices();
+
     voices.forEach(function (voice, index) {
       const option = document.createElement('option');
       option.textContent = `${voice.name} (${voice.lang})`;
@@ -24,11 +25,14 @@ function init() {
 
   populateVoices();
 
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = populateVoices;
+  }
+
   // add event listeners
   speakButton.addEventListener('click', function () {
-    const speech = new SpeechSynthesisUtterance(textTyped.value);
     const selectedIndex = voiceSelect.value;
-
+    const speech = new SpeechSynthesisUtterance(textTyped.value);
     speech.voice = voices[selectedIndex];
 
     speech.onstart = function () {
