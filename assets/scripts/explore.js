@@ -23,11 +23,11 @@ function init() {
     });
   }
 
-  populateVoices();
-
   if (synth.onvoiceschanged !== undefined) {
     synth.onvoiceschanged = populateVoices;
   }
+
+  populateVoices();
 
   // add event listeners
   speakButton.addEventListener('click', function () {
