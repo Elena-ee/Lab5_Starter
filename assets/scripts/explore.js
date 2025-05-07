@@ -35,11 +35,9 @@ function init() {
     const speech = new SpeechSynthesisUtterance(textTyped.value);
     speech.voice = voices[selectedIndex];
 
-    /* speech.onstart = function () {
-      smilingFace.src = 'assets/images/open.png';
-    }; */
-
-    smilingFace.src = 'assets/images/open.png';
+    speech.onstart = function () {
+      smilingFace.src = 'assets/images/smiling-open.png';
+    };
 
     speech.onend = function () {
       smilingFace.src = 'assets/images/smiling.png';
