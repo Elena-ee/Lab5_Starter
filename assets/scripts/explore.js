@@ -36,11 +36,13 @@ function init() {
     speech.voice = voices[selectedIndex];
 
     speech.onstart = function () {
-      smilingFace.src = 'assets/images/smiling-open.png';
+      // smilingFace.src = 'assets/images/smiling-open.png';
+      smilingFace.src = './assets/images/smiling-open.png';
     };
 
     speech.onend = function () {
-      smilingFace.src = 'assets/images/smiling.png';
+      // smilingFace.src = 'assets/images/smiling.png';
+      smilingFace.src = './assets/images/smiling.png';
     };
 
     synth.speak(speech); 
